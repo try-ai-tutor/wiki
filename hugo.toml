@@ -1,5 +1,5 @@
 baseURL = "https://try-ai-tutor.github.io/wiki/"
-title = "try-ai-tutor"
+title = "LLM Coding Tutor"
 languageCode = "en-us"
 
 enableRobotsTXT = true
@@ -7,10 +7,10 @@ enableGitInfo = true
 summaryLength = 120
 
 [params]
-  description = "An open CS-education platform: AI tutoring, auto-grading, and harvested learning-trajectory data."
-  tagline = "AI tutoring for intro-programming, built on GitHub Classroom + Docker + LLM Tutor."
+  description = "An open LLM coding tutor for CS education: auto-grading, per-commit feedback, and harvested learning-trajectory data."
+  tagline = "Automated grading with per-commit LLM feedback for introductory programming."
   githubOrg = "https://github.com/try-ai-tutor"
-  contactEmail = "kangwon.lee@ieee.org"
+  contactFormURL = "https://forms.gle/rvwqmQypSx1HeEc26"
 
   # Video artifacts (origin session memory: reference_video_artifacts.md)
   pyconDemoID = "IaIJvWb3kSg"      # PyCon KR 2024 — infra walkthrough
