@@ -37,15 +37,24 @@
   <div class="container prose">
     <h2>Why</h2>
     <p>
-      First-year CS students get stuck on small mechanical errors that are obvious to a human TA and
-      invisible to a traditional autograder. An LLM tutor that reads the code <em>and</em> the failing
-      test output can unblock those moments in seconds — and we can measure whether that help
-      actually helps.
+      First-year programming students get stuck on small mechanical errors that are obvious to a
+      human TA and invisible to a traditional autograder. An LLM tutor that reads the code
+      <em>and</em> the failing test output can unblock those moments in seconds — and we can measure
+      whether that help actually helps.
     </p>
     <p>
-      The platform is course-agnostic and is currently used for two courses at Tech University of
-      Korea (CPF — Computer Programming Fundamentals, for freshmen; ECA — Engineering Computational
-      Analysis, for juniors). The same pipeline should work for any Python or C++ homework.
+      The students don't have to be CS majors. The two courses it powers today are engineering
+      courses at Tech University of Korea — CPF (Computer Programming Fundamentals) for first-year
+      engineering students, and ECA (Engineering Computational Analysis) for juniors who need
+      programming as a means to domain work rather than as an end. The same pipeline should work for
+      any Python or C++ homework in any lab.
+    </p>
+    <p>
+      The zero-install design — nothing runs on the student's machine; everything runs in GitHub's
+      cloud — was originally for freshmen with weak laptops. The same property makes the platform
+      deployable anywhere with internet: LMIC universities, budget-constrained schools, or
+      classrooms on satellite internet. Bringing personalized feedback to students who would
+      otherwise have none is a direction we are actively working toward.
     </p>
     <p>
       One more thing worth saying out loud: most of this platform's configuration — Dockerfiles,
@@ -66,23 +75,28 @@
     </p>
     <ol>
       <li>
-        <a href="https://classroom.github.com/a/6tkc2Nk-" target="_blank" rel="noopener">
-          <strong>020p — Prompt-only: rectangle area</strong>
+        <a href="https://classroom.github.com/a/S7hWRc_v" target="_blank" rel="noopener">
+          <strong>020 — Rectangle area (code)</strong>
         </a>
         <br>
-        Write a prompt. An LLM turns it into code. The code gets graded. If it fails, the tutor tells
-        you which detail your prompt was missing. Covered in the demo video below.
+        Write <code>exercise.py</code>; the grader runs it against a hidden test suite and the
+        tutor explains what went wrong (or right).
       </li>
       <li>
-        <a href="https://classroom.github.com/classrooms" target="_blank" rel="noopener">
-          Browse the full classroom
+        <a href="https://classroom.github.com/a/6tkc2Nk-" target="_blank" rel="noopener">
+          <strong>020p — Rectangle area (prompt-only)</strong>
         </a>
-        — more assignments added each semester.
+        <br>
+        Write a prompt. An LLM turns it into code. The code gets graded. If it fails, the tutor
+        tells you which detail your prompt was missing. Covered in the demo video below.
       </li>
     </ol>
     <p class="note">
-      You'll need a GitHub account. No local setup is required. If GitHub Classroom complains about
-      a roster slot, skip to &quot;accept without identifier.&quot;
+      You'll need a GitHub account. No local setup is required. If accepting fails with a
+      <strong>500 error</strong>, the repo is created but you are not added as a collaborator —
+      please reach out via the
+      <a href="{{ .Site.Params.contactFormURL }}" target="_blank" rel="noopener">contact form</a>
+      with your GitHub username and the assignment name so we can add you manually.
     </p>
   </div>
 </section>
