@@ -1,0 +1,26 @@
+baseURL = "https://try-ai-tutor.github.io/wiki/"
+title = "try-ai-tutor"
+languageCode = "en-us"
+
+enableRobotsTXT = true
+enableGitInfo = true
+summaryLength = 120
+
+[params]
+  description = "An open CS-education platform: AI tutoring, auto-grading, and harvested learning-trajectory data."
+  tagline = "AI tutoring for intro-programming, built on GitHub Classroom + Docker + Gemini."
+  githubOrg = "https://github.com/try-ai-tutor"
+  contactEmail = "kangwon+try-ai-tutor@gmail.com"
+
+  # Video artifacts (origin session memory: reference_video_artifacts.md)
+  pyconDemoID = "IaIJvWb3kSg"      # PyCon KR 2024 — infra walkthrough
+  promptDemoID = "i1cXhRnm-VI"     # 2026-04-17 — 020p prompt-only demo (silent)
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]

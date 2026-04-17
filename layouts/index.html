@@ -1,0 +1,161 @@
+{{ define "main" }}
+
+<section class="hero">
+  <div class="container">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#try">Try a demo assignment</a>
+      <a class="btn btn-secondary" href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">See the code</a>
+    </div>
+  </div>
+</section>
+
+<section id="what" class="section">
+  <div class="container prose">
+    <h2>What it is</h2>
+    <p>
+      <strong>try-ai-tutor</strong> is an open platform for teaching introductory programming
+      with automated grading and LLM-driven per-commit feedback.
+    </p>
+    <ul>
+      <li><strong>GitHub Classroom</strong> delivers assignments to students.</li>
+      <li><strong>GitHub Actions</strong> grade every commit inside a prebuilt Docker image.</li>
+      <li>An <strong>AI tutor</strong> (Gemini) reads the student's code and test results, and writes
+          bilingual (English + Korean) feedback next to the pass/fail score.</li>
+      <li>Every run is <strong>harvested</strong> — we record the full commit trajectory so we can study
+          how students actually learn.</li>
+    </ul>
+    <p>
+      Students need nothing but a browser. No local toolchain, no Python install, no Docker.
+      The entire loop runs on GitHub.
+    </p>
+  </div>
+</section>
+
+<section id="why" class="section section--alt">
+  <div class="container prose">
+    <h2>Why</h2>
+    <p>
+      First-year CS students get stuck on small mechanical errors that are obvious to a human TA and
+      invisible to a traditional autograder. An LLM tutor that reads the code <em>and</em> the failing
+      test output can unblock those moments in seconds — and we can measure whether that help
+      actually helps.
+    </p>
+    <p>
+      The platform is course-agnostic and is currently used for two courses at Korea's Korea Aerospace
+      University (CPF — Computational Problem-Solving for Freshmen; ECA — Engineering Computer
+      Applications for juniors). The same pipeline should work for any Python or C++ homework.
+    </p>
+  </div>
+</section>
+
+<section id="try" class="section">
+  <div class="container prose">
+    <h2>Try it</h2>
+    <p>
+      The fastest way to feel the loop is to accept a demo assignment yourself. Each link opens a
+      GitHub Classroom invite; accepting creates a private repo under <code>try-ai-tutor</code> with
+      your username. Push a change, watch CI grade it, read the tutor's feedback.
+    </p>
+    <ol>
+      <li>
+        <a href="https://classroom.github.com/a/6tkc2Nk-" target="_blank" rel="noopener">
+          <strong>020p — Prompt-only: rectangle area</strong>
+        </a>
+        <br>
+        Write a prompt. An LLM turns it into code. The code gets graded. If it fails, the tutor tells
+        you which detail your prompt was missing. Covered in the demo video below.
+      </li>
+      <li>
+        <a href="https://classroom.github.com/classrooms" target="_blank" rel="noopener">
+          Browse the full classroom
+        </a>
+        — more assignments added each semester.
+      </li>
+    </ol>
+    <p class="note">
+      You'll need a GitHub account. No local setup is required. If GitHub Classroom complains about
+      a roster slot, skip to &quot;accept without identifier.&quot;
+    </p>
+  </div>
+</section>
+
+<section id="architecture" class="section section--alt">
+  <div class="container prose">
+    <h2>Architecture</h2>
+    <p>At the coarsest level, three independent pieces talk through GitHub:</p>
+    <div class="arch">
+      <div class="arch-box"><strong>Grader image</strong><br><span>Docker · GHCR</span><br>tests + AI tutor baked in</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box"><strong>Student repo</strong><br><span>GitHub Classroom</span><br>one per student, per assignment</div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box"><strong>Collector</strong><br><span>actions-collector</span><br>harvests every run</div>
+    </div>
+    <ul>
+      <li><strong>Grader image</strong> — a private Docker image per assignment
+          (<code>ghcr.io/kangwonlee/python-pytest-NNN</code>) containing pytest, style checks,
+          <em>Gemini Python Tutor</em>, and the hidden test cases.</li>
+      <li><strong>Student repo</strong> — created by GitHub Classroom from a public homework template.
+          A thin workflow pulls the grader image and runs it on every push.</li>
+      <li><strong>Collector</strong> — a separate tool that walks every org and archives run logs,
+          scores, and commit trajectories into a local dataset for research.</li>
+      <li><strong>Owl / Canary</strong> — the meta-test framework that grades the graders, so a
+          regression in the autograder is caught before it reaches students.</li>
+    </ul>
+    <p>
+      Each piece is a separately versioned repository under <code>try-ai-tutor</code> and
+      <code>kangwonlee</code>. Replacing one (for example, swapping Gemini for a local model) does not
+      touch the others.
+    </p>
+  </div>
+</section>
+
+<section id="videos" class="section">
+  <div class="container prose">
+    <h2>Videos</h2>
+
+    <h3>Prompt-only assignment — 020p area demo</h3>
+    <p>
+      Silent screen capture (2026-04-17). The full fail-then-pass loop on a prompt-only assignment:
+      a vague first prompt earns 2/5 and the tutor explains the four missing details; a revised
+      prompt earns 5/5.
+    </p>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/{{ .Site.Params.promptDemoID }}"
+        title="try-ai-tutor prompt-only demo"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <h3>PyCon Korea 2024 — infrastructure walkthrough</h3>
+    <p>Conference talk covering the build-push / Classroom / auto-grading pipeline.</p>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/{{ .Site.Params.pyconDemoID }}"
+        title="PyCon KR 2024 — try-ai-tutor infrastructure"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="links" class="section section--alt">
+  <div class="container prose">
+    <h2>Links</h2>
+    <ul>
+      <li><a href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">try-ai-tutor organization</a> — all public platform code.</li>
+      <li><a href="https://github.com/kangwonlee/gemini-python-tutor" target="_blank" rel="noopener">gemini-python-tutor</a> — the AI tutor itself.</li>
+      <li><a href="mailto:{{ .Site.Params.contactEmail }}">Contact</a> — questions, collaboration, adopting the stack at your school.</li>
+    </ul>
+    <p class="note">
+      Research paper draft and harvest-data analysis are held until camera-ready. Interested
+      reviewers can reach out directly.
+    </p>
+  </div>
+</section>
+
+{{ end }}

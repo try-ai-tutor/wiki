@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>
+      <a href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">try-ai-tutor on GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:{{ .Site.Params.contactEmail }}">Contact</a>
+    </p>
+    {{ $sha := getenv "HUGO_DEPLOY_SHA" }}
+    {{ if $sha }}
+      <p class="build">{{ substr $sha 0 7 }} · {{ now.Format "2006-01-02" }}</p>
+    {{ else }}
+      {{ with .Site.Home.GitInfo }}
+        <p class="build">{{ .AbbreviatedHash }} · {{ .AuthorDate.Format "2006-01-02" }}</p>
+      {{ end }}
+    {{ end }}
+  </div>
+</footer>
