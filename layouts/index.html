@@ -6,7 +6,7 @@
     <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#try">Try a demo assignment</a>
-      <a class="btn btn-secondary" href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">See the code</a>
+      <a class="btn btn-secondary" href="#links">See the code</a>
     </div>
   </div>
 </section>
@@ -21,7 +21,7 @@
     <ul>
       <li><strong>GitHub Classroom</strong> delivers assignments to students.</li>
       <li><strong>GitHub Actions</strong> grade every commit inside a prebuilt Docker image.</li>
-      <li>An <strong>AI tutor</strong> (Gemini) reads the student's code and test results, and writes
+      <li>An <strong>AI tutor</strong> reads the student's code and test results, and writes
           bilingual (English + Korean) feedback next to the pass/fail score.</li>
       <li>Every run is <strong>harvested</strong> — we record the full commit trajectory so we can study
           how students actually learn.</li>
@@ -43,9 +43,9 @@
       actually helps.
     </p>
     <p>
-      The platform is course-agnostic and is currently used for two courses at Korea's Korea Aerospace
-      University (CPF — Computational Problem-Solving for Freshmen; ECA — Engineering Computer
-      Applications for juniors). The same pipeline should work for any Python or C++ homework.
+      The platform is course-agnostic and is currently used for two courses at Tech University of
+      Korea (CPF — Computer Programming Fundamentals, for freshmen; ECA — Engineering Computational
+      Analysis, for juniors). The same pipeline should work for any Python or C++ homework.
     </p>
   </div>
 </section>
@@ -95,7 +95,7 @@
     <ul>
       <li><strong>Grader image</strong> — a private Docker image per assignment
           (<code>ghcr.io/kangwonlee/python-pytest-NNN</code>) containing pytest, style checks,
-          <em>Gemini Python Tutor</em>, and the hidden test cases.</li>
+          the LLM tutor, and the hidden test cases.</li>
       <li><strong>Student repo</strong> — created by GitHub Classroom from a public homework template.
           A thin workflow pulls the grader image and runs it on every push.</li>
       <li><strong>Collector</strong> — a separate tool that walks every org and archives run logs,
@@ -105,8 +105,9 @@
     </ul>
     <p>
       Each piece is a separately versioned repository under <code>try-ai-tutor</code> and
-      <code>kangwonlee</code>. Replacing one (for example, swapping Gemini for a local model) does not
-      touch the others.
+      <code>kangwonlee</code>. The LLM tutor ships with configs for Gemini, Claude, Grok, Perplexity,
+      and NVIDIA NIM out of the box, and any OpenAI-compatible REST endpoint can be added by
+      subclassing a small config class. Replacing one piece does not touch the others.
     </p>
   </div>
 </section>
@@ -147,9 +148,17 @@
   <div class="container prose">
     <h2>Links</h2>
     <ul>
-      <li><a href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">try-ai-tutor organization</a> — all public platform code.</li>
-      <li><a href="https://github.com/kangwonlee/gemini-python-tutor" target="_blank" rel="noopener">gemini-python-tutor</a> — the AI tutor itself.</li>
-      <li><a href="mailto:{{ .Site.Params.contactEmail }}">Contact</a> — questions, collaboration, adopting the stack at your school.</li>
+      <li><a href="https://github.com/kangwonlee/python-homework-template" target="_blank" rel="noopener">python-homework-template</a>
+          — the student-facing assignment template that Classroom forks per student.</li>
+      <li><a href="https://github.com/kangwonlee/python-pytest-template" target="_blank" rel="noopener">python-pytest-template</a>
+          — the grader-image template that builds the private Docker image for each assignment.</li>
+      <li><a href="https://github.com/kangwonlee/gemini-python-tutor" target="_blank" rel="noopener">gemini-python-tutor</a>
+          — the LLM tutor (supports Gemini, Claude, Grok, Perplexity, NVIDIA NIM, or any
+          OpenAI-compatible endpoint).</li>
+      <li><a href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">try-ai-tutor organization</a>
+          — the demo classroom, this wiki, and future public components.</li>
+      <li><a href="mailto:{{ .Site.Params.contactEmail }}">Contact</a>
+          — questions, collaboration, adopting the stack at your school.</li>
     </ul>
     <p class="note">
       Research paper draft and harvest-data analysis are held until camera-ready. Interested

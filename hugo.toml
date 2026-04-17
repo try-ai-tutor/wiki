@@ -8,9 +8,9 @@ summaryLength = 120
 
 [params]
   description = "An open CS-education platform: AI tutoring, auto-grading, and harvested learning-trajectory data."
-  tagline = "AI tutoring for intro-programming, built on GitHub Classroom + Docker + Gemini."
+  tagline = "AI tutoring for intro-programming, built on GitHub Classroom + Docker + LLM Tutor."
   githubOrg = "https://github.com/try-ai-tutor"
-  contactEmail = "kangwon+try-ai-tutor@gmail.com"
+  contactEmail = "kangwon.lee@ieee.org"
 
   # Video artifacts (origin session memory: reference_video_artifacts.md)
   pyconDemoID = "IaIJvWb3kSg"      # PyCon KR 2024 — infra walkthrough
