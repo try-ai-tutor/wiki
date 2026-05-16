@@ -61,11 +61,11 @@ The current physics simulation is a **1D longitudinal ODE solver**: enough to ex
 - **Track-based scenarios** — the canonical Levine, Spielberg, and Silverstone maps that the F1Tenth community already trains and benchmarks on. Lap-completion + collision-count + minimum-margin metrics over a full lap, not a single head-on geometry.
 - **Multi-agent racing** — an opponent car running a published baseline (e.g., Disparity Extender or Follow-the-Gap) lets the student's safety_node face a moving threat. Currently out of scope for an introductory lab but well within reach as a Lab 5+ extension.
 
-The technical blockers are not architectural — the grader image already runs ROS 2 humble and ships with rclpy. They are mostly about **CI runtime budget**:
+The technical blockers are not architectural and not about image size — **f1tenth_gym and `f1tenth_gym_ros` are already installed in the grader image** alongside ROS 2 humble, rclpy, and numba. What's missing is the wiring. The remaining work is mostly about **CI runtime budget and the orchestration layer**:
 
-- Full f1tenth_gym needs ~2-4 GB of additional dependencies in the image (gym, gym-extensions, numba, PyOpenGL for offscreen rendering). The current image is ~2 GB; growth is non-trivial but manageable.
-- A single track lap at race pace takes 30-60 seconds of real time; running a 5-scenario battery would add several minutes per push. The 1-D ODE simulation runs in 5-10 seconds total.
-- Offscreen rendering for the lidar simulation needs either headless OpenGL on the runner (works on GitHub-hosted runners with `xvfb-run`) or a swap to a pure-numpy 2D raycaster.
+- A single track lap at race pace takes 30-60 seconds of real time; running a 5-scenario battery on top of the current pipeline would add several minutes per push. The 1-D ODE simulation runs in 5-10 seconds total.
+- Offscreen rendering of the lidar beams needs either headless OpenGL on the runner (works on GitHub-hosted runners with `xvfb-run`) or a swap to gym's pure-numpy raycaster path.
+- Bridging the student's `safety_node` to a full gym episode (spawn vehicle, drive a baseline opponent on the map, terminate on lap-complete or collision) is a workflow-script + small ROS-launch task, not a code-base change.
 
 Path forward: **a tiered grading model**, where every push gets the fast 1-D physics layer (current), and a `gym-full` reusable workflow runs on a manual dispatch or on a slower nightly schedule. Students opt in for the deeper check; the autograder remains snappy for the inner loop. This is the same pattern the platform already uses for the heavier Heex monitoring layer.
 
