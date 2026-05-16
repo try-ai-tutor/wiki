@@ -50,7 +50,7 @@ The story is **two voices converging on the same defect**:
 - The **test** says *"here is where it broke."*
 - The **tutor** says *"here is why it broke, and here is the spec sentence that names the right fix."*
 
-A human TA can read code and say the same things, but cannot read 50 commits a day, every day, every section, for 15 weeks. The tutor does.
+**Scales without compromising access.** Grading and feedback run entirely on GitHub's infrastructure, so a student needs nothing but a browser — no local Python install, no Docker, no GPU, no toolchain to keep working. The same configuration that serves a well-resourced classroom also reaches students who join from older laptops, constrained or intermittent bandwidth, or regions where the power grid is unreliable. A human TA cannot read every commit from every student across every section every week; the platform can — at the same per-commit cost whether the student is in the next room or on the other side of the world.
 
 ## Roadmap — full f1tenth_gym in CI
 
