@@ -32,6 +32,12 @@ The pipeline runs entirely on GitHub infrastructure, with no local install requi
 4. **AI tutor runs after the tests** — it consumes the failing test output plus the student's code and writes a paragraph or two explaining *why* each test broke, in plain language scaled to the student's level. The tutor depends on the test results; it does not duplicate them.
 5. **GitHub Step Summary** aggregates the verdict and the tutor markdown next to the green/red badge on the commit. Per-scenario trajectory plots are produced as workflow artifacts (Step Summary itself does not reliably inline the rendered images at this size, so they download instead of preview).
 
+<figure>
+  <img src="/wiki/roboracer-lab02-actions.png"
+       alt="Two consecutive runs of the F1TENTH Lab 2 Tests workflow in the GitHub Actions tab: a green-checkmark run from the main branch (1m 50s) and a red-X run from a deliberately buggy branch (1m 53s).">
+  <figcaption><em>Two consecutive runs of the per-push grading workflow as a student sees them: one green (a correct safety_node), one red (the demo's intentionally-buggy state). Same workflow, same checks, opposite outcomes.</em></figcaption>
+</figure>
+
 The physics layer takes less than 1 second for five scenarios (sub-tick event detection in `scipy.solve_ivp`); the AI tutor stage adds another 10-20 s depending on provider and prompt size.
 
 ## Why the brake decision releases when the threat clears
