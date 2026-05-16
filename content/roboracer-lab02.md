@@ -1,6 +1,6 @@
 ---
 title: "RoboRacer Lab 02 — AEB safety demo"
-description: "Closed-loop physics simulation + LLM tutor for F1Tenth autonomous emergency braking code. Three student states, three voices converging."
+description: "Closed-loop physics simulation + LLM tutor for F1Tenth autonomous emergency braking code."
 date: 2026-05-16
 ---
 
@@ -10,51 +10,21 @@ A live demo of the LLM Coding Tutor applied to **F1Tenth autonomous-racing cours
 
 The demo deliberately models a real autonomous-vehicle safety property — **the brake decision must release when the threat clears** — that a naïve grader would silently let students get wrong.
 
-**Watch the demo:** [youtu.be/sjjuj7pe4uw](https://youtu.be/sjjuj7pe4uw) — 15-minute demo presented at the **IEEE Intelligent Transportation Systems Society — Korea Chapter** pre-meeting for IV 2026 (2026-05-16).
-
-## Three student states, three test outcomes
-
-The demo replays the same lab through three commits a real student might make on the way to a correct solution:
-
-| State | Code (`scan_callback`) | Result | What breaks |
-|---|---|---|---|
-| **Buggy** | `front_range = ranges[len(ranges) // 2]` | **6 / 11** | Looks at only the middle laser beam. Misses obstacles on the actual forward direction (which is at index 0 under the test's angle convention). Two unit tests + three physics-collision tests fail. |
-| **Scalar** | `min_range = min(finite_ranges); ttc = min_range / speed` | **10 / 11** | Aggregates the lidar scan with `min()`, which lets a *lateral* obstacle (at θ = ±π/2, where closing rate is zero) trigger a false brake. Fails exactly one test: `test_no_brake_on_lateral_only_obstacle`. |
-| **Per-beam (correct)** | `iTTC_i = r_i / max(-v · cos θ_i, 0)` | **11 / 11** | The README §III spec: range rate projected per beam via cosine. Side beams contribute zero closing rate even when their range is small. |
-
-The grader is **outcome only**: did the car collide, did it brake when it shouldn't have. The AI tutor reads the failing test output plus the student's code and writes a paragraph or two explaining *why* the test broke, in plain language scaled to the student's level. On the scalar state, for example, the tutor names the cosine-projection requirement the student missed.
+**Watch the demo:** [youtu.be/sjjuj7pe4uw](https://youtu.be/sjjuj7pe4uw)
 
 ## Architecture
 
-```
-              ┌─────────────────────────────────────────────────┐
-              │       GitHub Classroom — student repo           │
-              │  push safety_node.py → classroom.yml workflow   │
-              └─────────────────────────┬───────────────────────┘
-                                        │
-                          docker pull   ▼
-              ┌─────────────────────────────────────────────────┐
-              │       Grader image (Docker, GHCR-hosted)        │
-              │   ROS 2 humble + pytest + scipy.integrate +     │
-              │   gemini-python-tutor (LLM provider chain)      │
-              └─────────────────────────┬───────────────────────┘
-                                        │
-                                        ▼
-        ┌───────────────────┬───────────────────┬───────────────────┐
-        │   Unit tests      │   Physics sim     │     AI tutor      │
-        │  per-beam iTTC,   │  scipy.solve_ivp  │  reads test logs  │
-        │  edge cases,      │  + collision      │  + student code   │
-        │  false positives  │  event detection  │  + writes paragraph│
-        └───────────────────┴───────────────────┴───────────────────┘
-                                        │
-                                        ▼
-              ┌─────────────────────────────────────────────────┐
-              │   GitHub Step Summary: 6/11 (or 10/11, 11/11)   │
-              │   + per-scenario trajectory PNG + tutor markdown │
-              └─────────────────────────────────────────────────┘
-```
+The pipeline runs entirely on GitHub infrastructure, with no local install required of the student:
 
-The **closed-loop physics simulation** runs five scenarios spanning the safety envelope (5 m/s, 10 m/s, 15 m/s head-on; stationary; intermittent lidar glitch). Vehicle dynamics use `a_max = 9.51 m/s²` and `scipy.integrate.solve_ivp` with event detection for sub-tick-precise collision and stop times. Total per-push grading overhead is ~100 ms.
+1. **Student push** — a commit to `safety_node.py` in the GitHub Classroom student repo fires the `classroom.yml` workflow.
+2. **Workflow pulls the grader image** — `ghcr.io/try-ai-tutor/roboracer-heex-agent-container:latest`, a Docker image with ROS 2 humble, pytest, scipy, and the `gemini-python-tutor` LLM provider chain baked in.
+3. **Three checks run inside the container:**
+   - **Unit tests** — per-beam iTTC spec compliance, edge cases (NaN/Inf), false positives.
+   - **Closed-loop physics simulation** — `scipy.integrate.solve_ivp` with event detection for sub-tick-precise collision and stop times. Five scenarios span the safety envelope: 5 m/s, 10 m/s, 15 m/s head-on; stationary; intermittent lidar glitch. Vehicle dynamics use `a_max = 9.51 m/s²` from the f1tenth_gym defaults.
+   - **AI tutor** — reads the failing test output plus the student's code and writes a paragraph or two explaining *why* each test broke, in plain language scaled to the student's level.
+4. **GitHub Step Summary** aggregates the verdict, per-scenario trajectory PNGs, and the tutor markdown into a single view next to the green/red badge on the commit.
+
+Total per-push grading overhead is ~100 ms for the physics layer; the AI tutor adds another 10-20 s depending on provider.
 
 ## Why the brake decision releases when the threat clears
 
