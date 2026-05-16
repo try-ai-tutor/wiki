@@ -10,19 +10,27 @@ A live demo of the LLM Coding Tutor applied to **F1Tenth autonomous-racing cours
 
 The demo deliberately models a real autonomous-vehicle safety property — **the brake decision must release when the threat clears** — that a naïve grader would silently let students get wrong.
 
-**Watch the demo:** [youtu.be/sjjuj7pe4uw](https://youtu.be/sjjuj7pe4uw)
+<div class="video-wrap">
+  <iframe
+    src="https://www.youtube.com/embed/sjjuj7pe4uw"
+    title="RoboRacer Lab 02 — AEB demo with LLM tutor"
+    frameborder="0"
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+</div>
 
 ## Architecture
 
 The pipeline runs entirely on GitHub infrastructure, with no local install required of the student:
 
 1. **Student push** — a commit to `safety_node.py` in the GitHub Classroom student repo fires the `classroom.yml` workflow.
-2. **Workflow pulls the grader image** — `ghcr.io/try-ai-tutor/roboracer-heex-agent-container:latest`, a Docker image with ROS 2 humble, pytest, scipy, and the `gemini-python-tutor` LLM provider chain baked in.
+2. **Workflow pulls the grader image** — a private Docker image with ROS 2 humble, pytest, scipy, and the `gemini-python-tutor` LLM provider chain baked in.
 3. **Two test layers run inside the container, in parallel:**
    - **Unit tests** — per-beam iTTC spec compliance, edge cases (NaN/Inf), false positives.
    - **Closed-loop physics simulation** — `scipy.integrate.solve_ivp` with event detection for sub-tick-precise collision and stop times. Five scenarios span the safety envelope: 5 m/s, 10 m/s, 15 m/s head-on; stationary; intermittent lidar glitch. Vehicle dynamics use `a_max = 9.51 m/s²` from the f1tenth_gym defaults.
+     - **In a future iteration:** enable the full f1tenth_gym simulator (already present inside the container) so that the same workflow can also verify higher-level assignment deliverables — track laps, opponent-aware behavior, and realistic-lidar robustness — alongside the lightweight closed-loop check.
 4. **AI tutor runs after the tests** — it consumes the failing test output plus the student's code and writes a paragraph or two explaining *why* each test broke, in plain language scaled to the student's level. The tutor depends on the test results; it does not duplicate them.
-5. **GitHub Step Summary** aggregates the verdict, per-scenario trajectory PNGs, and the tutor markdown into a single view next to the green/red badge on the commit.
+5. **GitHub Step Summary** aggregates the verdict and the tutor markdown next to the green/red badge on the commit. Per-scenario trajectory plots are produced as workflow artifacts (Step Summary itself does not reliably inline the rendered images at this size, so they download instead of preview).
 
 Total per-push grading overhead is ~100 ms for the physics layer; the AI tutor adds another 10-20 s depending on provider.
 
@@ -30,7 +38,7 @@ Total per-push grading overhead is ~100 ms for the physics layer; the AI tutor a
 
 The F1Tenth ESC tracks the **last received** `/drive` target — the same behavior as a real automotive ECU. While the student's safety_node keeps publishing `drive.speed = 0.0` (because iTTC is still below the engagement threshold), the vehicle decelerates. When emission stops, the ESC's speed target reverts.
 
-The grader models that faithfully. A naïve student whose code emits brake **once** on a single noisy lidar beam (no filtering, no multi-frame confirmation, no hysteresis) would produce exactly the failure mode NHTSA opened on Tesla in 2022 — **phantom braking** ([PE22-002](https://static.nhtsa.gov/odi/inv/2022/INOA-PE22002-7415.PDF)): a car that stops in the middle of a highway from a single misperception and never recovers. The grader's reference implementation uses a **production-pattern hysteresis controller** (engage at iTTC < 1.5 s, release at iTTC > 1.65 s — the same engage/release split used by Bosch and Mobileye ADAS). A student who internalizes "fire once, walk away" finds their car still passes the unit tests but under-decelerates and collides in the physics simulation.
+The grader models that faithfully. A naïve student whose code emits brake **once** on a single noisy lidar beam (no filtering, no multi-frame confirmation, no hysteresis) would produce a well-known class of production AV defect: a car that stops in the middle of the road from a single misperception and never recovers — phantom braking. The grader's reference implementation uses a **production-pattern hysteresis controller** (engage at iTTC < 1.5 s, release at iTTC > 1.65 s, the standard engage/release split in production ADAS). A student who internalizes "fire once, walk away" finds their car still passes the unit tests but under-decelerates and collides in the physics simulation.
 
 This is the pedagogical bet: a grader that **fails the right way** teaches the right pattern. A grader that latches the brake permanently after the first emission would silently approve the phantom-braking design.
 
@@ -65,10 +73,9 @@ Once gym is in CI, the same demo can be re-recorded with **a real Levine hallway
 
 ## Links
 
-- [`roboracer-heex-agent-container`](https://github.com/try-ai-tutor/roboracer-heex-agent-container) — the grader image: tests, physics simulation, AI tutor entry points, Dockerfile. Source for `ghcr.io/try-ai-tutor/roboracer-heex-agent-container:latest`.
-- [`f1tenth_lab2_template`](https://github.com/try-ai-tutor/f1tenth_lab2_template) — the student starter repository GitHub Classroom forks per student.
-- [`f1tenth_lab2_tester`](https://github.com/try-ai-tutor/f1tenth_lab2_tester) — the autograder logic shared between the grader image and the upstream F1Tenth tester.
+- [RoboRacer / F1Tenth — Learn](https://roboracer.ai/learn) — the official F1Tenth Course Kit documentation: lab handouts, hardware build guides, and the canonical reference for the Lab 02 specification this demo targets.
 - [`gemini-python-tutor`](https://github.com/kangwonlee/gemini-python-tutor) — the LLM tutor (supports Gemini, Claude, Grok, Perplexity, NVIDIA NIM, or any OpenAI-compatible endpoint).
-- [F1Tenth coursework upstream](https://github.com/f1tenth/f1tenth_lab_template) — the original lab series we extend.
+- [`f1tenth/f1tenth_lab2_template`](https://github.com/f1tenth/f1tenth_lab2_template) — the upstream Lab 2 starter our deployment extends.
+- [`f1tenth/f1tenth_gym`](https://github.com/f1tenth/f1tenth_gym) — the F1Tenth simulator the Roadmap section refers to.
 
 The grader image, classroom workflow, AI tutor, and physics simulation are all separately versioned. Replacing one piece does not touch the others — the same architectural property that lets the platform serve introductory Python and autonomous-vehicle coursework with the same backbone.

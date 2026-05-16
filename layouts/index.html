@@ -140,15 +140,9 @@
 
     <h3>RoboRacer Lab 02 — autonomous-vehicle AEB demo</h3>
     <p>
-      The same backbone applied to F1Tenth autonomous-racing coursework: students write a
-      <code>safety_node</code> that must brake before colliding with obstacles. Closed-loop physics
-      simulation plus AI tutor critique. Three student states (6/11 → 10/11 → 11/11) with
-      the tutor explaining each failure mode. Presented at IEEE-ITSS Korea Chapter pre-meeting,
-      2026-05-16.
-    </p>
-    <p class="note">
-      Full write-up with architecture and the AV-safety design rationale —
-      <a href="{{ "roboracer-lab02/" | relURL }}">RoboRacer Lab 02 page</a>.
+      The platform applied to F1Tenth autonomous-racing coursework: a
+      <code>safety_node</code> graded against unit tests, closed-loop physics, and an AI tutor.
+      Full write-up on the <a href="{{ "roboracer-lab02/" | relURL }}">Lab 02 page</a>.
     </p>
     <div class="video-wrap">
       <iframe
@@ -161,13 +155,8 @@
 
     <h3>Prompt-only assignment — 020p area demo</h3>
     <p>
-      Silent screen capture (2026-04-17). The full fail-then-pass loop on a prompt-only assignment:
-      a vague first prompt earns 2/5 and the tutor explains the four missing details; a revised
-      prompt earns 5/5.
-    </p>
-    <p class="note">
-      Recorded via GitHub's web editor; click-through automated with Claude Code and its Chrome
-      MCP extension.
+      Silent screen capture. A prompt-only assignment: a vague first prompt earns 2/5 and the
+      tutor names the missing details; a revised prompt earns 5/5.
     </p>
     <div class="video-wrap">
       <iframe
@@ -196,19 +185,17 @@
     <h2>Links</h2>
     <ul>
       <li><a href="https://github.com/kangwonlee/python-homework-template" target="_blank" rel="noopener">python-homework-template</a>
-          — the student-facing assignment template that Classroom forks per student.</li>
+          — student-facing assignment template; Classroom forks one per student.</li>
       <li><a href="https://github.com/kangwonlee/python-pytest-template" target="_blank" rel="noopener">python-pytest-template</a>
-          — the grader-image template that builds the private Docker image for each assignment.</li>
+          — grader-image template; builds the private Docker image for each assignment.</li>
       <li><a href="https://github.com/kangwonlee/gemini-python-tutor" target="_blank" rel="noopener">gemini-python-tutor</a>
-          — the LLM tutor (supports Gemini, Claude, Grok, Perplexity, NVIDIA NIM, or any
-          OpenAI-compatible endpoint).</li>
+          — the LLM tutor; Gemini, Claude, Grok, Perplexity, NIM, or any OpenAI-compatible endpoint.</li>
       <li><a href="{{ "roboracer-lab02/" | relURL }}">RoboRacer Lab 02</a>
-          — the same platform applied to F1Tenth AEB safety code. Architecture, three-state walkthrough,
-          and the AV-safety design rationale (why the brake decision must release).</li>
+          — the platform applied to F1Tenth AEB safety code.</li>
       <li><a href="{{ .Site.Params.githubOrg }}" target="_blank" rel="noopener">try-ai-tutor organization</a>
-          — the demo classroom, this wiki, and future public components.</li>
+          — demo classroom, wiki, and public components.</li>
       <li><a href="{{ .Site.Params.contactFormURL }}" target="_blank" rel="noopener">Contact form</a>
-          — questions, collaboration, adopting the stack at your school.</li>
+          — questions, collaboration, adoption.</li>
     </ul>
     <p class="note">
       Research paper draft and harvest-data analysis are held until camera-ready. Interested
