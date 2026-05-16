@@ -10,16 +10,7 @@ A live demo of the LLM Coding Tutor applied to **F1Tenth autonomous-racing cours
 
 The demo deliberately models a real autonomous-vehicle safety property — **the brake decision must release when the threat clears** — that a naïve grader would silently let students get wrong.
 
-<div class="video-wrap">
-  <iframe
-    src="https://www.youtube.com/embed/sjjuj7pe4uw"
-    title="RoboRacer Lab 02 — AEB demo with LLM tutor"
-    frameborder="0"
-    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-</div>
-
-15-minute demo presented at the **IEEE Intelligent Transportation Systems Society — Korea Chapter** pre-meeting for IV 2026 (2026-05-16).
+**Watch the demo:** [youtu.be/sjjuj7pe4uw](https://youtu.be/sjjuj7pe4uw) — 15-minute demo presented at the **IEEE Intelligent Transportation Systems Society — Korea Chapter** pre-meeting for IV 2026 (2026-05-16).
 
 ## Three student states, three test outcomes
 
