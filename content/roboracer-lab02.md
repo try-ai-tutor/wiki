@@ -18,11 +18,11 @@ The pipeline runs entirely on GitHub infrastructure, with no local install requi
 
 1. **Student push** — a commit to `safety_node.py` in the GitHub Classroom student repo fires the `classroom.yml` workflow.
 2. **Workflow pulls the grader image** — `ghcr.io/try-ai-tutor/roboracer-heex-agent-container:latest`, a Docker image with ROS 2 humble, pytest, scipy, and the `gemini-python-tutor` LLM provider chain baked in.
-3. **Three checks run inside the container:**
+3. **Two test layers run inside the container, in parallel:**
    - **Unit tests** — per-beam iTTC spec compliance, edge cases (NaN/Inf), false positives.
    - **Closed-loop physics simulation** — `scipy.integrate.solve_ivp` with event detection for sub-tick-precise collision and stop times. Five scenarios span the safety envelope: 5 m/s, 10 m/s, 15 m/s head-on; stationary; intermittent lidar glitch. Vehicle dynamics use `a_max = 9.51 m/s²` from the f1tenth_gym defaults.
-   - **AI tutor** — reads the failing test output plus the student's code and writes a paragraph or two explaining *why* each test broke, in plain language scaled to the student's level.
-4. **GitHub Step Summary** aggregates the verdict, per-scenario trajectory PNGs, and the tutor markdown into a single view next to the green/red badge on the commit.
+4. **AI tutor runs after the tests** — it consumes the failing test output plus the student's code and writes a paragraph or two explaining *why* each test broke, in plain language scaled to the student's level. The tutor depends on the test results; it does not duplicate them.
+5. **GitHub Step Summary** aggregates the verdict, per-scenario trajectory PNGs, and the tutor markdown into a single view next to the green/red badge on the commit.
 
 Total per-push grading overhead is ~100 ms for the physics layer; the AI tutor adds another 10-20 s depending on provider.
 
