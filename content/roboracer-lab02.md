@@ -6,7 +6,7 @@ date: 2026-05-16
 
 ## What this is
 
-A live demo of the LLM Coding Tutor applied to **F1Tenth autonomous-racing coursework** — specifically Lab 02, where students write a `safety_node` that must brake before colliding with obstacles. The grader runs in three layers and the AI tutor reads all three, so students see the same defect explained from three angles.
+A live demo of the LLM Coding Tutor applied to **F1Tenth autonomous-racing coursework** — specifically Lab 02, where students write a `safety_node` that must brake before colliding with obstacles. The grader runs two test layers — unit tests and a closed-loop physics simulation — and the AI tutor then reads both outputs to explain why anything failed, so students see the same defect surfaced from multiple angles in one report.
 
 The demo deliberately models a real autonomous-vehicle safety property — **the brake decision must release when the threat clears** — that a naïve grader would silently let students get wrong.
 
@@ -32,7 +32,7 @@ The pipeline runs entirely on GitHub infrastructure, with no local install requi
 4. **AI tutor runs after the tests** — it consumes the failing test output plus the student's code and writes a paragraph or two explaining *why* each test broke, in plain language scaled to the student's level. The tutor depends on the test results; it does not duplicate them.
 5. **GitHub Step Summary** aggregates the verdict and the tutor markdown next to the green/red badge on the commit. Per-scenario trajectory plots are produced as workflow artifacts (Step Summary itself does not reliably inline the rendered images at this size, so they download instead of preview).
 
-Total per-push grading overhead is ~100 ms for the physics layer; the AI tutor adds another 10-20 s depending on provider.
+The physics layer takes less than 1 second for five scenarios (sub-tick event detection in `scipy.solve_ivp`); the AI tutor stage adds another 10-20 s depending on provider and prompt size.
 
 ## Why the brake decision releases when the threat clears
 
@@ -56,7 +56,7 @@ A human TA can read code and say the same things, but cannot read 50 commits a d
 
 The current physics simulation is a **1D longitudinal ODE solver**: enough to expose threshold-too-aggressive, missing-hysteresis, and single-tick noise-handling defects, and small enough to add ~100 ms per push to the autograder. The next step is to **wire the full f1tenth_gym simulator into the CI pipeline** so the same student commit that triggers unit tests also runs against:
 
-- **Full 2-D vehicle dynamics** — single-track bicycle model with Pacejka tyre formulas, actuator lag, and yaw inertia. Catches defects that 1-D longitudinal dynamics cannot — for example, an AEB that brakes correctly straight-on but spins the car under panic-brake-while-cornering loads.
+- **Full 2-D vehicle dynamics** — single-track model with linearized cornering-stiffness tires (CommonRoad-style), actuator limits, and yaw inertia. Catches defects that 1-D longitudinal dynamics cannot — for example, an AEB that brakes correctly straight-on but loses traction under panic-brake-while-cornering loads.
 - **Realistic lidar simulation** — Gaussian beam noise, salt-and-pepper dropouts, finite range and angular resolution. The pedagogical hole flagged in the current grader (a naïve pure-threshold controller passes the 1-D scenarios because the synthetic lidar is noise-free) closes once gym's lidar is in the loop. Students who don't filter or hysteresis their iTTC will visibly chatter.
 - **Track-based scenarios** — the canonical Levine, Spielberg, and Silverstone maps that the F1Tenth community already trains and benchmarks on. Lap-completion + collision-count + minimum-margin metrics over a full lap, not a single head-on geometry.
 - **Multi-agent racing** — an opponent car running a published baseline (e.g., Disparity Extender or Follow-the-Gap) lets the student's safety_node face a moving threat. Currently out of scope for an introductory lab but well within reach as a Lab 5+ extension.
