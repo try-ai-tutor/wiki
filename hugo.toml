@@ -15,6 +15,7 @@ summaryLength = 120
   # Video artifacts (origin session memory: reference_video_artifacts.md)
   pyconDemoID = "IaIJvWb3kSg"      # PyCon KR 2024 — infra walkthrough
   promptDemoID = "i1cXhRnm-VI"     # 2026-04-17 — 020p prompt-only demo (silent)
+  roboracerDemoID = "sjjuj7pe4uw"  # 2026-05-16 — RoboRacer Lab 02 AEB demo (IEEE-ITSS-KR talk-D)
 
 [markup]
   [markup.goldmark]
