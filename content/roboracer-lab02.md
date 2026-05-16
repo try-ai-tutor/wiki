@@ -12,7 +12,7 @@ The demo deliberately models a real autonomous-vehicle safety property — **the
 
 <div class="video-wrap">
   <iframe
-    src="https://www.youtube.com/embed/{{ .Site.Params.roboracerDemoID }}"
+    src="https://www.youtube.com/embed/sjjuj7pe4uw"
     title="RoboRacer Lab 02 — AEB demo with LLM tutor"
     frameborder="0"
     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
