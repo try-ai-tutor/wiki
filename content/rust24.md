@@ -16,8 +16,9 @@ MIT — we adapt the topics, not the exercise source.
 
 ## Honest status
 
-This track is **under construction.** Eight assignments are now live on
-the Classroom. The status badge on each row below is honest:
+All **24 assignments are now built and locally validated**; **eight are live** on the
+Classroom and the rest are deploy-pending (rolling out). The status badge on each row
+below is honest:
 
 - **✓ ready** — built, validated end-to-end, and live on the Classroom.
 - **built — deploy pending** — authored and locally validated; not yet on a
@@ -28,7 +29,7 @@ the Classroom. The status badge on each row below is honest:
 
 Per-assignment GitHub Classroom invite links are filled in as each assignment
 becomes class-ready. Until then each link is a `TODO` placeholder — there are
-no invites for the planned slots yet. The track's Classroom lives at
+no invites for the deploy-pending slots yet. The track's Classroom lives at
 <https://classroom.github.com/classrooms/275699733-try-ai-rust-tutor>.
 
 ## The 24 assignments
@@ -51,14 +52,14 @@ no invites for the planned slots yet. The track's Classroom lives at
 | p130 | Error handling | built — deploy pending | _TODO_ |
 | p140 | Generics | built — deploy pending | _TODO_ |
 | p150 | Traits | built — deploy pending | _TODO_ |
-| p160 | Lifetimes | planned | _TODO_ |
-| p170 | Tests | planned | _TODO_ |
-| p180 | Iterators | planned | _TODO_ |
-| p190 | Smart pointers | planned | _TODO_ |
-| p200 | Threads | planned | _TODO_ |
-| p210 | Macros | planned | _TODO_ |
-| p220 | Clippy | planned | _TODO_ |
-| p230 | Type conversions | planned | _TODO_ |
+| p160 | Lifetimes | built — deploy pending | _TODO_ |
+| p170 | Tests | built — deploy pending | _TODO_ |
+| p180 | Iterators | built — deploy pending | _TODO_ |
+| p190 | Smart pointers | built — deploy pending | _TODO_ |
+| p200 | Threads | built — deploy pending | _TODO_ |
+| p210 | Macros | built — deploy pending | _TODO_ |
+| p220 | Clippy | built — deploy pending | _TODO_ |
+| p230 | Type conversions | built — deploy pending | _TODO_ |
 
 ## How an assignment works
 
