@@ -16,11 +16,12 @@ MIT — we adapt the topics, not the exercise source.
 
 ## Honest status
 
-This track is **under construction.** Only **p000** is class-ready today and
-**p010** is scaffolded; the other 22 slots are planned. The status badge on
-each row below is honest:
+This track is **under construction.** Eight assignments are now live on
+the Classroom. The status badge on each row below is honest:
 
-- **✓ ready** — built, validated end-to-end, and deployable.
+- **✓ ready** — built, validated end-to-end, and live on the Classroom.
+- **built — deploy pending** — authored and locally validated; not yet on a
+  student-facing Classroom repo.
 - **scaffolded** — content drafted and locally validated, not yet on a
   student-facing repo.
 - **planned** — not built yet (topic and learning goal fixed; no content).
@@ -36,20 +37,20 @@ no invites for the planned slots yet. The track's Classroom lives at
 |---|---|---|---|
 | p000 | Intro / hello world | ✓ ready | _TODO: add invite_ |
 | p010 | Variables & mutability | scaffolded | _TODO: add invite_ |
-| p020 | Functions | planned | _TODO_ |
-| p030 | Control flow (`if`) | planned | _TODO_ |
-| p040 | Primitive types | planned | _TODO_ |
-| p050 | Vectors | planned | _TODO_ |
-| p060 | Move semantics | planned | _TODO_ |
-| p070 | Structs | planned | _TODO_ |
-| p080 | Enums & pattern matching | planned | _TODO_ |
-| p090 | Strings | planned | _TODO_ |
-| p100 | Modules | planned | _TODO_ |
-| p110 | Hash maps | planned | _TODO_ |
-| p120 | `Option` | planned | _TODO_ |
-| p130 | Error handling | planned | _TODO_ |
-| p140 | Generics | planned | _TODO_ |
-| p150 | Traits | planned | _TODO_ |
+| p020 | Functions | ✓ ready | [Accept assignment](https://classroom.github.com/a/oMXNhuq1) |
+| p030 | Control flow (`if`) | ✓ ready | [Accept assignment](https://classroom.github.com/a/fA0cRosR) |
+| p040 | Primitive types | ✓ ready | [Accept assignment](https://classroom.github.com/a/KdT0qwV1) |
+| p050 | Vectors | ✓ ready | [Accept assignment](https://classroom.github.com/a/zKAUyZ4G) |
+| p060 | Move semantics | ✓ ready | [Accept assignment](https://classroom.github.com/a/dhY2kuSG) |
+| p070 | Structs | ✓ ready | [Accept assignment](https://classroom.github.com/a/mLgko6kl) |
+| p080 | Enums & pattern matching | ✓ ready | [Accept assignment](https://classroom.github.com/a/mXivwSQb) |
+| p090 | Strings | ✓ ready | [Accept assignment](https://classroom.github.com/a/2Tlm_w1F) |
+| p100 | Modules | built — deploy pending | _TODO_ |
+| p110 | Hash maps | built — deploy pending | _TODO_ |
+| p120 | `Option` | built — deploy pending | _TODO_ |
+| p130 | Error handling | built — deploy pending | _TODO_ |
+| p140 | Generics | built — deploy pending | _TODO_ |
+| p150 | Traits | built — deploy pending | _TODO_ |
 | p160 | Lifetimes | planned | _TODO_ |
 | p170 | Tests | planned | _TODO_ |
 | p180 | Iterators | planned | _TODO_ |
