@@ -16,9 +16,9 @@ MIT — we adapt the topics, not the exercise source.
 
 ## Honest status
 
-All **24 assignments are now built and locally validated**; **eight are live** on the
-Classroom and the rest are deploy-pending (rolling out). The status badge on each row
-below is honest:
+All **24 assignments are built and locally validated**, and **22 are live** on the
+Classroom — the full contiguous run **p020–p230**. (p000/p010 are built/scaffolded but
+not yet posted as Classroom assignments.) The status badge on each row below is honest:
 
 - **✓ ready** — built, validated end-to-end, and live on the Classroom.
 - **built — deploy pending** — authored and locally validated; not yet on a
@@ -27,17 +27,16 @@ below is honest:
   student-facing repo.
 - **planned** — not built yet (topic and learning goal fixed; no content).
 
-Per-assignment GitHub Classroom invite links are filled in as each assignment
-becomes class-ready. Until then each link is a `TODO` placeholder — there are
-no invites for the deploy-pending slots yet. The track's Classroom lives at
+Per-assignment GitHub Classroom invite links are in the table below — p020–p230
+are live now. The track's Classroom lives at
 <https://classroom.github.com/classrooms/275699733-try-ai-rust-tutor>.
 
 ## The 24 assignments
 
 | Slot | Topic | Status | Classroom invite |
 |---|---|---|---|
-| p000 | Intro / hello world | ✓ ready | _TODO: add invite_ |
-| p010 | Variables & mutability | scaffolded | _TODO: add invite_ |
+| p000 | Intro / hello world | built — deploy pending | _TODO_ |
+| p010 | Variables & mutability | scaffolded | _TODO_ |
 | p020 | Functions | ✓ ready | [Accept assignment](https://classroom.github.com/a/oMXNhuq1) |
 | p030 | Control flow (`if`) | ✓ ready | [Accept assignment](https://classroom.github.com/a/fA0cRosR) |
 | p040 | Primitive types | ✓ ready | [Accept assignment](https://classroom.github.com/a/KdT0qwV1) |
@@ -46,20 +45,20 @@ no invites for the deploy-pending slots yet. The track's Classroom lives at
 | p070 | Structs | ✓ ready | [Accept assignment](https://classroom.github.com/a/mLgko6kl) |
 | p080 | Enums & pattern matching | ✓ ready | [Accept assignment](https://classroom.github.com/a/mXivwSQb) |
 | p090 | Strings | ✓ ready | [Accept assignment](https://classroom.github.com/a/2Tlm_w1F) |
-| p100 | Modules | built — deploy pending | _TODO_ |
-| p110 | Hash maps | built — deploy pending | _TODO_ |
-| p120 | `Option` | built — deploy pending | _TODO_ |
-| p130 | Error handling | built — deploy pending | _TODO_ |
-| p140 | Generics | built — deploy pending | _TODO_ |
-| p150 | Traits | built — deploy pending | _TODO_ |
-| p160 | Lifetimes | built — deploy pending | _TODO_ |
-| p170 | Tests | built — deploy pending | _TODO_ |
-| p180 | Iterators | built — deploy pending | _TODO_ |
-| p190 | Smart pointers | built — deploy pending | _TODO_ |
-| p200 | Threads | built — deploy pending | _TODO_ |
-| p210 | Macros | built — deploy pending | _TODO_ |
-| p220 | Clippy | built — deploy pending | _TODO_ |
-| p230 | Type conversions | built — deploy pending | _TODO_ |
+| p100 | Modules | ✓ ready | [Accept assignment](https://classroom.github.com/a/WgotTPfC) |
+| p110 | Hash maps | ✓ ready | [Accept assignment](https://classroom.github.com/a/cegK_jhG) |
+| p120 | `Option` | ✓ ready | [Accept assignment](https://classroom.github.com/a/wu9erNMQ) |
+| p130 | Error handling | ✓ ready | [Accept assignment](https://classroom.github.com/a/WtCzSpSt) |
+| p140 | Generics | ✓ ready | [Accept assignment](https://classroom.github.com/a/uSJY_kFp) |
+| p150 | Traits | ✓ ready | [Accept assignment](https://classroom.github.com/a/XA-8oXtT) |
+| p160 | Lifetimes | ✓ ready | [Accept assignment](https://classroom.github.com/a/N9_ljMud) |
+| p170 | Tests | ✓ ready | [Accept assignment](https://classroom.github.com/a/HyJnef3q) |
+| p180 | Iterators | ✓ ready | [Accept assignment](https://classroom.github.com/a/GHjL4Uy-) |
+| p190 | Smart pointers | ✓ ready | [Accept assignment](https://classroom.github.com/a/V2UbytiJ) |
+| p200 | Threads | ✓ ready | [Accept assignment](https://classroom.github.com/a/oG1YT_4M) |
+| p210 | Macros | ✓ ready | [Accept assignment](https://classroom.github.com/a/dSr7UOas) |
+| p220 | Clippy | ✓ ready | [Accept assignment](https://classroom.github.com/a/io9bLu7h) |
+| p230 | Type conversions | ✓ ready | [Accept assignment](https://classroom.github.com/a/1AdTQH6Z) |
 
 ## How an assignment works
 
