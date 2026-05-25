@@ -16,9 +16,8 @@ MIT — we adapt the topics, not the exercise source.
 
 ## Honest status
 
-All **24 assignments are built and locally validated**, and **22 are live** on the
-Classroom — the full contiguous run **p020–p230**. (p000/p010 are built/scaffolded but
-not yet posted as Classroom assignments.) The status badge on each row below is honest:
+All **24 assignments are built, validated, and live** on the Classroom — the full
+contiguous run **p000–p230**. The status badge on each row below is honest:
 
 - **✓ ready** — built, validated end-to-end, and live on the Classroom.
 - **built — deploy pending** — authored and locally validated; not yet on a
@@ -28,19 +27,19 @@ not yet posted as Classroom assignments.) The status badge on each row below is 
 - **planned** — not built yet (topic and learning goal fixed; no content).
 
 Accept an assignment from its invite link below — you need only a GitHub account
-and a browser. p020–p230 are live now.
+and a browser. All 24 (p000–p230) are live now.
 
 ## The track — six units of four
 
 The 24 assignments are grouped into **six units of four**, so the track reads as a
-paced sequence rather than one long list. p020–p230 are live; p000/p010 are pending.
+paced sequence rather than one long list. All 24 (p000–p230) are live.
 
 ### Unit 1 · Foundations — p000–p030
 
 | Slot | Topic | Status | Classroom invite |
 |---|---|---|---|
-| p000 | Intro / hello world | built — deploy pending | _TODO_ |
-| p010 | Variables & mutability | scaffolded | _TODO_ |
+| p000 | Intro / hello world | ✓ ready | [Accept assignment](https://classroom.github.com/a/RaaA8gTu) |
+| p010 | Variables & mutability | ✓ ready | [Accept assignment](https://classroom.github.com/a/fAbhXOtl) |
 | p020 | Functions | ✓ ready | [Accept assignment](https://classroom.github.com/a/oMXNhuq1) |
 | p030 | Control flow (`if`) | ✓ ready | [Accept assignment](https://classroom.github.com/a/fA0cRosR) |
 
