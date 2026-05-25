@@ -28,8 +28,8 @@ not yet posted as Classroom assignments.) The status badge on each row below is 
 - **planned** — not built yet (topic and learning goal fixed; no content).
 
 Per-assignment GitHub Classroom invite links are in the table below — p020–p230
-are live now. The track's Classroom lives at
-<https://classroom.github.com/classrooms/275699733-try-ai-rust-tutor>.
+are live now. Accept an assignment from its invite link; you need only a GitHub
+account and a browser.
 
 ## The 24 assignments
 
