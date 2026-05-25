@@ -27,11 +27,15 @@ not yet posted as Classroom assignments.) The status badge on each row below is 
   student-facing repo.
 - **planned** — not built yet (topic and learning goal fixed; no content).
 
-Per-assignment GitHub Classroom invite links are in the table below — p020–p230
-are live now. Accept an assignment from its invite link; you need only a GitHub
-account and a browser.
+Accept an assignment from its invite link below — you need only a GitHub account
+and a browser. p020–p230 are live now.
 
-## The 24 assignments
+## The track — six units of four
+
+The 24 assignments are grouped into **six units of four**, so the track reads as a
+paced sequence rather than one long list. p020–p230 are live; p000/p010 are pending.
+
+### Unit 1 · Foundations — p000–p030
 
 | Slot | Topic | Status | Classroom invite |
 |---|---|---|---|
@@ -39,22 +43,47 @@ account and a browser.
 | p010 | Variables & mutability | scaffolded | _TODO_ |
 | p020 | Functions | ✓ ready | [Accept assignment](https://classroom.github.com/a/oMXNhuq1) |
 | p030 | Control flow (`if`) | ✓ ready | [Accept assignment](https://classroom.github.com/a/fA0cRosR) |
+
+### Unit 2 · Data & ownership — p040–p070
+
+| Slot | Topic | Status | Classroom invite |
+|---|---|---|---|
 | p040 | Primitive types | ✓ ready | [Accept assignment](https://classroom.github.com/a/KdT0qwV1) |
 | p050 | Vectors | ✓ ready | [Accept assignment](https://classroom.github.com/a/zKAUyZ4G) |
 | p060 | Move semantics | ✓ ready | [Accept assignment](https://classroom.github.com/a/dhY2kuSG) |
 | p070 | Structs | ✓ ready | [Accept assignment](https://classroom.github.com/a/mLgko6kl) |
+
+### Unit 3 · Modeling & organization — p080–p110
+
+| Slot | Topic | Status | Classroom invite |
+|---|---|---|---|
 | p080 | Enums & pattern matching | ✓ ready | [Accept assignment](https://classroom.github.com/a/mXivwSQb) |
 | p090 | Strings | ✓ ready | [Accept assignment](https://classroom.github.com/a/2Tlm_w1F) |
 | p100 | Modules | ✓ ready | [Accept assignment](https://classroom.github.com/a/WgotTPfC) |
 | p110 | Hash maps | ✓ ready | [Accept assignment](https://classroom.github.com/a/cegK_jhG) |
+
+### Unit 4 · Errors & abstraction — p120–p150
+
+| Slot | Topic | Status | Classroom invite |
+|---|---|---|---|
 | p120 | `Option` | ✓ ready | [Accept assignment](https://classroom.github.com/a/wu9erNMQ) |
 | p130 | Error handling | ✓ ready | [Accept assignment](https://classroom.github.com/a/WtCzSpSt) |
 | p140 | Generics | ✓ ready | [Accept assignment](https://classroom.github.com/a/uSJY_kFp) |
 | p150 | Traits | ✓ ready | [Accept assignment](https://classroom.github.com/a/XA-8oXtT) |
+
+### Unit 5 · Lifetimes & iterators — p160–p190
+
+| Slot | Topic | Status | Classroom invite |
+|---|---|---|---|
 | p160 | Lifetimes | ✓ ready | [Accept assignment](https://classroom.github.com/a/N9_ljMud) |
 | p170 | Tests | ✓ ready | [Accept assignment](https://classroom.github.com/a/HyJnef3q) |
 | p180 | Iterators | ✓ ready | [Accept assignment](https://classroom.github.com/a/GHjL4Uy-) |
 | p190 | Smart pointers | ✓ ready | [Accept assignment](https://classroom.github.com/a/V2UbytiJ) |
+
+### Unit 6 · Concurrency & tooling — p200–p230
+
+| Slot | Topic | Status | Classroom invite |
+|---|---|---|---|
 | p200 | Threads | ✓ ready | [Accept assignment](https://classroom.github.com/a/oG1YT_4M) |
 | p210 | Macros | ✓ ready | [Accept assignment](https://classroom.github.com/a/dSr7UOas) |
 | p220 | Clippy | ✓ ready | [Accept assignment](https://classroom.github.com/a/io9bLu7h) |
