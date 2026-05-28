@@ -23,9 +23,9 @@ description: "자율주행 레이싱 실습을 자동 채점 + 매 커밋 LLM �
 |---|---|---|---|
 | 2 | 자동 비상 제동(Automatic Emergency Braking) | demo + re-deploy 예정 · [demo + video](/wiki/roboracer-lab02/) | — |
 | 3 | 벽 추종(Wall Following, PID) | built ✓ — classroom 준비중 | built ✓ — classroom 준비중 |
-| 4 | Follow the Gap | **✓ live** · [Accept assignment](https://classroom.github.com/a/mxXkLIMf) | built ✓ — classroom 준비중 |
-| 5 | 스캔 매칭(Scan Matching, PLICP) | — | built ✓ — classroom 준비중 |
-| 6 | Pure Pursuit | **✓ live** · [Accept assignment](https://classroom.github.com/a/ehA0rYJt) | built ✓ — classroom 준비중 |
+| 4 | Follow the Gap | **✓ live** · [Accept assignment](https://classroom.github.com/a/mxXkLIMf) | **✓ live** · [Accept assignment](https://classroom.github.com/a/G_IF3gLI) |
+| 5 | 스캔 매칭(Scan Matching, PLICP) | — | **✓ live** · [Accept assignment](https://classroom.github.com/a/L-DehS19) |
+| 6 | Pure Pursuit | **✓ live** · [Accept assignment](https://classroom.github.com/a/ehA0rYJt) | **✓ live** · [Accept assignment](https://classroom.github.com/a/Fo9vQlQC) |
 | 7 | 모션 플래닝(Motion Planning, RRT) | built — deploy 준비중 | built — deploy 준비중 |
 | 8 | 인식 / 비전(Perception / Vision) | built — deploy 준비중 | — |
 | 9 | 모델 예측 제어(Model Predictive Control) | built — deploy 준비중 | — |
