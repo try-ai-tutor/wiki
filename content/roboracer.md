@@ -12,7 +12,7 @@ cheap structural/unit checks first, then a closed-loop physics simulation — an
 LLM tutor reads the failing tests and the student's code to explain what went wrong.
 No local ROS install; a GitHub account and a browser are enough.
 
-## Honest status
+## Current state
 
 The grading pipeline is **proven** — demonstrated on Lab 2 and validated end-to-end on
 Lab 4 Python and Lab 6 Python, which are **live** on the Classroom. The remaining labs
@@ -30,16 +30,16 @@ table says so.
 
 ## The labs
 
-| Lab | Topic | Python | C++ |
-|---|---|---|---|
-| 2 | Automatic Emergency Braking | demo + re-deploy planned · [demo + video](/wiki/roboracer-lab02/) | — |
-| 3 | Wall Following (PID) | built ✓ — classroom pending | built ✓ — classroom pending |
-| 4 | Follow the Gap | **✓ live** · [Accept assignment](https://classroom.github.com/a/mxXkLIMf) | **✓ live** · [Accept assignment](https://classroom.github.com/a/G_IF3gLI) |
-| 5 | Scan Matching (PLICP) | — | **✓ live** · [Accept assignment](https://classroom.github.com/a/L-DehS19) |
-| 6 | Pure Pursuit | **✓ live** · [Accept assignment](https://classroom.github.com/a/ehA0rYJt) | **✓ live** · [Accept assignment](https://classroom.github.com/a/Fo9vQlQC) |
-| 7 | Motion Planning (RRT) | built — deploy pending | built — deploy pending |
-| 8 | Perception / Vision | built — deploy pending | — |
-| 9 | Model Predictive Control | built — deploy pending | — |
+| Lab | Topic | Status | Python | C++ |
+|---|---|---|---|---|
+| 2 | Automatic Emergency Braking | demo + re-deploy planned | [demo + video](/wiki/roboracer-lab02/) | — |
+| 3 | Wall Following (PID) | built ✓ — classroom pending | — | — |
+| 4 | Follow the Gap | **✓ live** | [Accept assignment](https://classroom.github.com/a/mxXkLIMf) | [Accept assignment](https://classroom.github.com/a/G_IF3gLI) |
+| 5 | Scan Matching (PLICP) | **✓ live** | — | [Accept assignment](https://classroom.github.com/a/L-DehS19) |
+| 6 | Pure Pursuit | **✓ live** | [Accept assignment](https://classroom.github.com/a/ehA0rYJt) | [Accept assignment](https://classroom.github.com/a/Fo9vQlQC) |
+| 7 | Motion Planning (RRT) | built — deploy pending | — | — |
+| 8 | Perception / Vision | built — deploy pending | — | — |
+| 9 | Model Predictive Control | built — deploy pending | — | — |
 
 Lab 1 (Intro to ROS 2) is intentionally outside the auto-graded track — its deliverables
 are pub/sub plumbing and `colcon` workspace setup, which the upstream RoboRacer course
