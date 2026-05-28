@@ -3,6 +3,8 @@ title: "Rust-24 — an introductory Rust track"
 description: "24 auto-graded Rust assignments with per-commit LLM feedback, adapted from rustlings."
 ---
 
+[한국어](./rust24.ko/)
+
 **Rust-24** is a 24-assignment introductory Rust track delivered through the
 same loop as the demo assignments on the home page: GitHub Classroom hands out
 the assignment, GitHub Actions grade every commit inside a prebuilt Docker

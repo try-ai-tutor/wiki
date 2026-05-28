@@ -3,6 +3,8 @@ title: "RoboRacer — F1TENTH autonomous-racing labs"
 description: "Auto-graded F1TENTH autonomous-racing labs with per-commit LLM-tutor feedback: ROS 2 nodes graded by tiered unit + closed-loop simulation."
 ---
 
+[한국어](./roboracer.ko/)
+
 **RoboRacer** adapts the open [F1TENTH](https://f1tenth.org) autonomous-racing
 curriculum into browser-only, auto-graded labs. Each lab is a ROS 2 node the student
 implements; on every commit, GitHub Actions grade it inside a prebuilt container —
