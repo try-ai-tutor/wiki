@@ -1,11 +1,11 @@
 ---
-title: "RoboRacer — F1TENTH autonomous-racing labs"
-description: "Auto-graded F1TENTH autonomous-racing labs with per-commit LLM-tutor feedback: ROS 2 nodes graded by tiered unit + closed-loop simulation."
+title: "RoboRacer — autonomous-racing labs"
+description: "Auto-graded autonomous-racing labs with per-commit LLM-tutor feedback: ROS 2 nodes graded by tiered unit + closed-loop simulation."
 ---
 
 [한국어](./roboracer.ko/)
 
-**RoboRacer** adapts the open [F1TENTH](https://f1tenth.org) autonomous-racing
+**RoboRacer** adapts the open [RoboRacer](https://roboracer.ai/learn) autonomous-racing
 curriculum into browser-only, auto-graded labs. Each lab is a ROS 2 node the student
 implements; on every commit, GitHub Actions grade it inside a prebuilt container —
 cheap structural/unit checks first, then a closed-loop physics simulation — and an
@@ -30,21 +30,19 @@ table says so.
 
 ## The labs
 
-| Lab | Topic | Variants | Status | Join |
-|---|---|---|---|---|
-| 2 | Automatic Emergency Braking | Python | demo + re-deploy planned | [demo + video](/wiki/roboracer-lab02/) |
-| 3 | Wall Following (PID) | Python · C++ | built ✓ — classroom pending | — |
-| 4 | Follow the Gap | Python | **✓ live** | [Accept assignment](https://classroom.github.com/a/mxXkLIMf) |
-| 4 | Follow the Gap | C++ | built ✓ — classroom pending | — |
-| 5 | Scan Matching (PLICP) | C++ | built ✓ — classroom pending | — |
-| 6 | Pure Pursuit | Python | **✓ live** | [Accept assignment](https://classroom.github.com/a/ehA0rYJt) |
-| 6 | Pure Pursuit | C++ | built ✓ — classroom pending | — |
-| 7 | Motion Planning (RRT) | Python · C++ | built — deploy pending | — |
-| 8 | Perception / Vision | Python | built — deploy pending | — |
-| 9 | Model Predictive Control | Python | built — deploy pending | — |
+| Lab | Topic | Python | C++ |
+|---|---|---|---|
+| 2 | Automatic Emergency Braking | demo + re-deploy planned · [demo + video](/wiki/roboracer-lab02/) | — |
+| 3 | Wall Following (PID) | built ✓ — classroom pending | built ✓ — classroom pending |
+| 4 | Follow the Gap | **✓ live** · [Accept assignment](https://classroom.github.com/a/mxXkLIMf) | built ✓ — classroom pending |
+| 5 | Scan Matching (PLICP) | — | built ✓ — classroom pending |
+| 6 | Pure Pursuit | **✓ live** · [Accept assignment](https://classroom.github.com/a/ehA0rYJt) | built ✓ — classroom pending |
+| 7 | Motion Planning (RRT) | built — deploy pending | built — deploy pending |
+| 8 | Perception / Vision | built — deploy pending | — |
+| 9 | Model Predictive Control | built — deploy pending | — |
 
 Lab 1 (Intro to ROS 2) is intentionally outside the auto-graded track — its deliverables
-are pub/sub plumbing and `colcon` workspace setup, which the upstream F1TENTH course
+are pub/sub plumbing and `colcon` workspace setup, which the upstream RoboRacer course
 already treats as the ungraded warm-up before Lab 2 onward.
 
 ## How a lab is graded
@@ -59,6 +57,6 @@ trajectories) without paying that cost on submissions that fail the quick check.
 
 ## Credit
 
-Adapted from the open **F1TENTH** autonomous-racing curriculum
-([f1tenth.org](https://f1tenth.org)) — the standard Lab 2–9 sequence. We adapt the
+Adapted from the open **RoboRacer** autonomous-racing curriculum
+([roboracer.ai/learn](https://roboracer.ai/learn)) — Lab 02 through 09. We adapt the
 topics and grading; original course materials remain the authors'.
