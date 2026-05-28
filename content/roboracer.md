@@ -33,12 +33,12 @@ table says so.
 | Lab | Topic | Variants | Status | Join |
 |---|---|---|---|---|
 | 2 | Automatic Emergency Braking | Python | demo + re-deploy planned | [demo + video](/wiki/roboracer-lab02/) |
-| 3 | Wall Following (PID) | Python · C++ | built — deploy pending | — |
+| 3 | Wall Following (PID) | Python · C++ | built ✓ — classroom pending | — |
 | 4 | Follow the Gap | Python | **✓ live** | [Accept assignment](https://classroom.github.com/a/mxXkLIMf) |
-| 4 | Follow the Gap | C++ | grader fixes in flight | — |
-| 5 | Scan Matching (PLICP) | C++ | grader fixes in flight | — |
+| 4 | Follow the Gap | C++ | built ✓ — classroom pending | — |
+| 5 | Scan Matching (PLICP) | C++ | built ✓ — classroom pending | — |
 | 6 | Pure Pursuit | Python | **✓ live** | [Accept assignment](https://classroom.github.com/a/ehA0rYJt) |
-| 6 | Pure Pursuit | C++ | grader fixes in flight | — |
+| 6 | Pure Pursuit | C++ | built ✓ — classroom pending | — |
 | 7 | Motion Planning (RRT) | Python · C++ | built — deploy pending | — |
 | 8 | Perception / Vision | Python | built — deploy pending | — |
 | 9 | Model Predictive Control | Python | built — deploy pending | — |

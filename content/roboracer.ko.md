@@ -22,12 +22,12 @@ description: "F1TENTH 자율주행 레이싱 실습을 자동 채점 + 매 커�
 | Lab | 주제 | Variants | 상태 | 참여 |
 |---|---|---|---|---|
 | 2 | 자동 비상 제동(Automatic Emergency Braking) | Python | demo + re-deploy planned | [demo + video](/wiki/roboracer-lab02/) |
-| 3 | 벽 추종(Wall Following, PID) | Python · C++ | built — deploy pending | — |
+| 3 | 벽 추종(Wall Following, PID) | Python · C++ | built ✓ — classroom pending | — |
 | 4 | Follow the Gap | Python | **✓ live** | [Accept assignment](https://classroom.github.com/a/mxXkLIMf) |
-| 4 | Follow the Gap | C++ | grader fixes in flight | — |
-| 5 | 스캔 매칭(Scan Matching, PLICP) | C++ | grader fixes in flight | — |
+| 4 | Follow the Gap | C++ | built ✓ — classroom pending | — |
+| 5 | 스캔 매칭(Scan Matching, PLICP) | C++ | built ✓ — classroom pending | — |
 | 6 | Pure Pursuit | Python | **✓ live** | [Accept assignment](https://classroom.github.com/a/ehA0rYJt) |
-| 6 | Pure Pursuit | C++ | grader fixes in flight | — |
+| 6 | Pure Pursuit | C++ | built ✓ — classroom pending | — |
 | 7 | 모션 플래닝(Motion Planning, RRT) | Python · C++ | built — deploy pending | — |
 | 8 | 인식 / 비전(Perception / Vision) | Python | built — deploy pending | — |
 | 9 | 모델 예측 제어(Model Predictive Control) | Python | built — deploy pending | — |
